@@ -138,6 +138,10 @@ header .logo {
     padding-right: 10px;
 }
 
+.phone > div.textwidget, .phone > div.textwidget > p {
+    display: inline;
+}
+
 /* Бургер */
 
 .burger {
@@ -262,6 +266,8 @@ header .logo {
     line-height: 18px;
     width: 170px;
 }
+
+
 
 .mob_main_menu i {
     padding-left: 20px;
