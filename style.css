@@ -230,10 +230,6 @@ header .logo {
     transition: 0.5s;
 }
 
-/*.fixed {
-    position: fixed;
-}*/
-
 .mob_main_menu {
     flex-grow: 1;
     padding-top: 10px;
@@ -267,8 +263,6 @@ header .logo {
     width: 170px;
 }
 
-
-
 .mob_main_menu i {
     padding-left: 20px;
     padding-right: 10px;
@@ -285,6 +279,11 @@ header .logo {
     margin-bottom: 70px;
     font-size: 16px;
 }
+.a_first_section form,
+footer form {
+    position: relative;
+}
+
 #main_form {
     position: relative;
     margin: 0 30px 25px 0;
@@ -296,7 +295,12 @@ header .logo {
     border-radius: 7px;
 }
 
-#main_form input:nth-child(1), #main_form input:nth-child(2), #main_form select {
+#main_form input:nth-child(2),
+footer input:nth-child(2),
+#main_form input:nth-child(3),
+footer input:nth-child(3),
+#main_form select,
+footer select {
     font-size: 14px;
     padding-left: 5px;
     color: #fff !important;
@@ -306,19 +310,20 @@ header .logo {
     border-bottom: 1px solid #fff;
     outline:none;
 }
-#main_form ::-webkit-input-placeholder {color:#fff;}
-#main_form ::-moz-placeholder          {color:#fff;}
-#main_form ::-moz-placeholder           {color:#fff;}
-#main_form :-ms-input-placeholder      {color:#fff;}
+#main_form ::-webkit-input-placeholder, footer ::-webkit-input-placeholder {color:#fff;}
+#main_form ::-moz-placeholder, footer ::-moz-placeholder {color:#fff;}
+#main_form :-ms-input-placeholder, footer :-ms-input-placeholder {color:#fff;}
 
-#main_form select {
+#main_form select,
+footer select {
     padding-left: 5px;
     -moz-appearance: none;
     -webkit-appearance: none;
     appearance: none;
 }
 
-#main_form button {
+#main_form button,
+footer button {
     width: 240px;
     height: 35px;
     color: #97D700;
@@ -328,6 +333,23 @@ header .logo {
 
 #a_main_slider {
     width: 540px;
+}
+
+.a_first_section .wpcf7-response-output,
+footer .wpcf7-response-output {
+    border: none !important;
+    color: #fff;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    text-align: center;
+}
+
+.a_first_section span.ajax-loader,
+footer span.ajax-loader {
+    display: none !important;
 }
 
 .a_slide p {
@@ -477,22 +499,31 @@ header .logo {
     margin: 5px 0 30px 0;
 }
 
-.a_conditions .fa-li {
-    font-size: 25px;
-    color: #97D700;
-    padding-top: 7px;
-}
-
-.a_payment .fa-li {
-    padding-top: 5px;
-}
-
 .a_conditions li {
     padding-bottom: 30px;
+    list-style-type: none;
+    position: relative;
 }
 
-.a_delivery li {
-    padding-left: 5px;
+.a_payment li:before,
+.a_delivery li:before {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 600;
+    position: absolute;
+    color: #97D700;
+    font-size: 25px;
+}
+
+.a_payment li:before {
+    content: '\f158';
+    left: -32px;
+    top: 4px;
+}
+
+.a_delivery li:before {
+    content: '\f48b';
+    left: -45px;
+    top: 6px;
 }
 
 .a_payment, .a_delivery {
@@ -604,31 +635,20 @@ footer form {
     width: 300px;
 }
 
-footer input:nth-child(1), footer input:nth-child(2), footer select {
-    font-size: 14px;
-    padding-left: 5px;
-    color: #fff !important;
+footer input:nth-child(2), footer input:nth-child(3), footer select {
     margin-bottom: 20px;
-    background-color: #97D700 !important;
-    border: none;
-    border-bottom: 1px solid #fff;
-    outline:none;
 }
-footer ::-webkit-input-placeholder {color:#fff;}
-footer ::-moz-placeholder          {color:#fff;}
-footer :-moz-placeholder           {color:#fff;}
-footer :-ms-input-placeholder      {color:#fff;}
 
 footer select {
     padding-left: 0;
 }
 
 footer button {
-    width: 240px;
-    height: 35px;
-    color: #97D700;
-    background-color: #fff;
     margin: 15px auto;
+}
+
+footer .wpcf7-response-output {
+    bottom: -30px;
 }
 
 footer a {

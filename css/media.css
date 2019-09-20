@@ -115,7 +115,7 @@
     }
 
     footer form {
-        width: 40%;
+        width: 88%;
         margin: 0 auto;
     }
 
@@ -330,6 +330,10 @@
 
     footer form {
         margin-bottom: 25px;
+        width: 280px;
     }
 
+    footer .custom-html-widget {
+        margin: 0 auto;
+    }
 }
