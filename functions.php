@@ -31,11 +31,10 @@ function stels48_media() {
     wp_enqueue_style( 'style6', get_template_directory_uri() . '/libs/owlcarousel/owl.carousel.min.css' );
     wp_enqueue_style( 'style7', '//use.fontawesome.com/releases/v5.10.2/css/all.css' );
     wp_enqueue_style( 'style8', '//fonts.googleapis.com/css?family=Montserrat:400,500,600,700&display=swap' );
-    wp_enqueue_script( 'script1', '//code.jquery.com/jquery-3.3.1.min.js');
-    wp_enqueue_script( 'script2', get_template_directory_uri() . '/libs/fancybox/jquery.fancybox.min.js');
-    wp_enqueue_script( 'script3', get_template_directory_uri() . '/libs/owlcarousel/owl.carousel.min.js');
+    wp_enqueue_script( 'script2', get_template_directory_uri() . '/libs/fancybox/jquery.fancybox.min.js', array( 'jquery' ) );
+    wp_enqueue_script( 'script3', get_template_directory_uri() . '/libs/owlcarousel/owl.carousel.min.js', array( 'jquery' ) );
     wp_enqueue_script( 'script4', '//api-maps.yandex.ru/2.1/?apikey=<2044817c-a630-48b1-acf8-5e08fd4884d3>&lang=ru_RU');
-    wp_enqueue_script( 'script6', get_template_directory_uri() . '/js/common.js');
+    wp_enqueue_script( 'script6', get_template_directory_uri() . '/js/common.js', array( 'jquery' ), '1.0.1' );
 }
 
 add_action( 'after_setup_theme', 'stels48_after_setup' );
