@@ -88,7 +88,115 @@ button {
 section {
     padding-top: 60px;
 }
+/* Формы сайта */
+form {
+    position: relative;
+}
 
+#main_form {
+    margin: 0 30px 25px 0;
+    width: 345px;
+    height: 190px;
+    min-height: 190px;
+    padding: 30px 44px;
+    background-color: #97D700;
+    border-radius: 7px;
+}
+
+form input:nth-child(2),
+form input:nth-child(3),
+form select {
+    font-size: 14px;
+    padding-left: 5px;
+    color: #fff !important;
+    margin-bottom: 25px;
+    background-color: #97D700 !important;
+    border: none;
+    border-bottom: 1px solid #fff;
+    outline:none;
+}
+::-webkit-input-placeholder {color:#fff;}
+::-moz-placeholder {color:#fff;}
+:-ms-input-placeholder {color:#fff;}
+
+form select {
+    padding-left: 5px;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+}
+
+.form_select {
+    position: relative;
+}
+
+.form_select:after {
+    font-family: "Font Awesome 5 Free";
+    content: '\f150';
+    font-weight: 400;
+    position: absolute;
+    right: 2%;
+    color: #fff;
+    font-size: 10px;
+    pointer-events: none;
+}
+
+form button {
+    width: 240px;
+    height: 35px;
+    color: #97D700;
+    background-color: #fff;
+    margin: 15px auto 0;
+}
+
+.wpcf7-response-output {
+    border: none !important;
+    color: #fff;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    text-align: center;
+}
+
+form span.ajax-loader {
+    display: none !important;
+}
+
+footer form {
+    margin: 0 30px 25px 0;
+    width: 300px;
+}
+
+footer input:nth-child(2), footer input:nth-child(3), footer select {
+    margin-bottom: 20px;
+}
+
+footer form button {
+    margin: 15px auto;
+}
+
+footer .wpcf7-response-output {
+    bottom: -30px;
+}
+
+#hidden_call_back {
+    background-color: #97D700;
+    min-width: 290px;
+    width: 500px;
+    min-height: 230px;
+    border-radius: 15px;
+}
+
+#hidden_call_back .wpcf7-response-output {
+    bottom: -45px;
+}
+
+.fancybox-button svg {
+    color: #fff;
+}
 /* Шапка сайта */
 
 header .logo {
@@ -275,98 +383,14 @@ header .logo {
 /* First Section */
 
 .a_first_section > div > p {
+    padding-left: 2px;
     margin-top: 5px;
     margin-bottom: 70px;
     font-size: 16px;
 }
-.a_first_section form,
-footer form {
-    position: relative;
-}
-
-#main_form {
-    position: relative;
-    margin: 0 30px 25px 0;
-    width: 345px;
-    height: 190px;
-    min-height: 190px;
-    padding: 30px 44px;
-    background-color: #97D700;
-    border-radius: 7px;
-}
-
-#main_form input:nth-child(2),
-footer input:nth-child(2),
-#main_form input:nth-child(3),
-footer input:nth-child(3),
-#main_form select,
-footer select {
-    font-size: 14px;
-    padding-left: 5px;
-    color: #fff !important;
-    margin-bottom: 25px;
-    background-color: #97D700 !important;
-    border: none;
-    border-bottom: 1px solid #fff;
-    outline:none;
-}
-#main_form ::-webkit-input-placeholder, footer ::-webkit-input-placeholder {color:#fff;}
-#main_form ::-moz-placeholder, footer ::-moz-placeholder {color:#fff;}
-#main_form :-ms-input-placeholder, footer :-ms-input-placeholder {color:#fff;}
-
-#main_form select,
-footer select {
-    padding-left: 5px;
-    -moz-appearance: none;
-    -webkit-appearance: none;
-    appearance: none;
-    width: 100%;
-}
-
-.form_select {
-    position: relative;
-    /*width: 100%;*/
-}
-
-.form_select:after {
-    font-family: "Font Awesome 5 Free";
-    content: '\f150';
-    font-weight: 400;
-    position: absolute;
-    right: 2%;
-    color: #fff;
-    font-size: 10px;
-    pointer-events: none;
-}
-
-#main_form button,
-footer button {
-    width: 240px;
-    height: 35px;
-    color: #97D700;
-    background-color: #fff;
-    margin: 15px auto 0;
-}
 
 #a_main_slider {
     width: 540px;
-}
-
-.a_first_section .wpcf7-response-output,
-footer .wpcf7-response-output {
-    border: none !important;
-    color: #fff;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: auto;
-    text-align: center;
-}
-
-.a_first_section span.ajax-loader,
-footer span.ajax-loader {
-    display: none !important;
 }
 
 .a_slide p {
@@ -647,23 +671,6 @@ footer {
     background-color: #97D700;
     color: #fff;
     padding: 50px 115px;
-}
-
-footer form {
-    margin: 0 30px 25px 0;
-    width: 300px;
-}
-
-footer input:nth-child(2), footer input:nth-child(3), footer select {
-    margin-bottom: 20px;
-}
-
-footer button {
-    margin: 15px auto;
-}
-
-footer .wpcf7-response-output {
-    bottom: -30px;
 }
 
 footer a {

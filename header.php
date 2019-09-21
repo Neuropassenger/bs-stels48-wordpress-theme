@@ -19,15 +19,17 @@
         <p>stels48</p>
     </div>
     <div class="menu_phone flex_main flex_jcontent-between">
-        <?php wp_nav_menu([
-            'theme_location' => 'top-menu',
-            'container' => 'nav',
-            'container_class' => 'smooth-scroll',
-            'item-wrap' => '<ul>%3$s</ul>',
-            'menu_class' => 'flex_main flex_wrap flex_jcontent-between'
-        ]); ?>
+        <?php wp_nav_menu(
+            array(
+                'theme_location' => 'top-menu',
+                'container' => 'nav',
+                'container_class' => 'smooth-scroll',
+                'item-wrap' => '<ul>%3$s</ul>',
+                'menu_class' => 'flex_main flex_wrap flex_jcontent-between'
+            )
+        ); ?>
 
-        <?php get_sidebar('phone'); ?>
+        <?php get_sidebar( 'phone' ); ?>
     </div>
     <div class="burger">
         <a class="menu_btn" href="#">
@@ -35,4 +37,3 @@
         </a>
     </div>
 </header>
-<?php print_r(get_post( 448 )); ?>

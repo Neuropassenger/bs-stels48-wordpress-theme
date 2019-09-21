@@ -330,9 +330,10 @@
                     while( $query->have_posts() ) {
                         $query->the_post(); ?>
                         <div class="a_one_comment">
-                            <?php the_post_thumbnail(array(115, 115)); ?>
-                            <p><?php echo get_post_meta(get_the_ID(), 'text')[0]; ?></p>
+                            <?php the_post_thumbnail( array( 115, 115 ) ); ?>
+                            <p><?php the_content(); ?></p>
                             <b><?php the_title(); ?></b>
+                            <p><?php echo get_post_meta( get_the_ID(), 'rating' )[0]; ?></p>
                         </div>
                     <?php
                     }

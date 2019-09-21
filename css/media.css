@@ -336,4 +336,16 @@
     footer .custom-html-widget {
         margin: 0 auto;
     }
+
+    #call_back_form button {
+        position: absolute;
+        left: 0;
+        right: 0;
+        margin: auto;
+        top: 100px;
+    }
+
+    #hidden_call_back .wpcf7-response-output {
+        bottom: -95px;
+    }
 }
