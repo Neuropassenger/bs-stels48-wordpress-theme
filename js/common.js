@@ -10,7 +10,7 @@ $(document).ready(function(){
         navSpeed: 1500,
         dotsSpeed: 1500,
         autoplayTimeout: 5000,
-        navText: ["<img src='wp-content/themes/bs-stels48/img/arrow_left.png'>", "<img src='wp-content/themes/bs-stels48/img/arrow_right.png'>"]
+        navText: ["<img src='img/arrow_left.png'>", "<img src='img/arrow_right.png'>"]
     });
 //карусель для отзывов
     $('#a_comments').owlCarousel({
@@ -24,7 +24,7 @@ $(document).ready(function(){
         navSpeed: 1500,
         dotsSpeed: 1500,
         autoplayTimeout: 8000,
-        navText: ["<img src='wp-content/themes/bs-stels48/img/arrow_left.png'>", "<img src='/wp-content/themes/bs-stels48/img/arrow_right.png'>"]
+        navText: ["<img src='img/arrow_left.png'>", "<img src='img/arrow_right.png'>"]
     });
     
 //плавная прокрутка для верхнего и нижнего меню
