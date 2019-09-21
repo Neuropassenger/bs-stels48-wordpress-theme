@@ -324,31 +324,26 @@
         <section class="a_comments" id="comments">
             <h2>Отзывы</h2>
             <div class="owl-carousel" id="a_comments">
-                <div class="a_one_comment">
-                    <img class="center" src="img/huj.png" alt="отзывы о велосипедах">
-                    <p>Подбирал сыну велосипед, заказал здесь, т.к. приятно удивили цены. Сначала сомневался, но как оказалось - напрасно. Ребята быстро помогли выбрать нужную модель. Забрал в коробке, собирал дома сам. В комплекте все на месте - никаких нареканий. Даже шестигранник положили. Спасибо!</p>
-                    <b>Хью Джекман</b>
-                </div>
-                <div class="a_one_comment">
-                    <img class="center" src="img/huj.png" alt="отзывы о велосипедах">
-                    <p>Подбирал сыну велосипед, заказал здесь, т.к. приятно удивили цены. Сначала сомневался, но как оказалось - напрасно. Ребята быстро помогли выбрать нужную модель. Забрал в коробке, собирал дома сам. В комплекте все на месте - никаких нареканий. Даже шестигранник положили. Спасибо!</p>
-                    <div class="center">
-                        <b>Хью Джекман</b>
-                    </div>
-                </div>
-                <div class="a_one_comment">
-                    <img class="center" src="img/huj.png" alt="отзывы о велосипедах">
-                    <p>Подбирал сыну велосипед, заказал здесь, т.к. приятно удивили цены. Сначала сомневался, но как оказалось - напрасно. Ребята быстро помогли выбрать нужную модель. Забрал в коробке, собирал дома сам. В комплекте все на месте - никаких нареканий. Даже шестигранник положили. Спасибо!</p>
-                    <div class="center">
-                        <b>Хью Джекман</b>
-                    </div>
-                </div>
+                <?php
+                $query = new WP_Query( 'post_type=reviews' );
+                if( $query->have_posts() ) {
+                    while( $query->have_posts() ) {
+                        $query->the_post(); ?>
+                        <div class="a_one_comment">
+                            <?php the_post_thumbnail(array(115, 115)); ?>
+                            <p><?php echo get_post_meta(get_the_ID(), 'text')[0]; ?></p>
+                            <b><?php the_title(); ?></b>
+                        </div>
+                    <?php
+                    }
+                    wp_reset_postdata(); // сбрасываем переменную $post
+                } else echo 'Адмиминистратор добавьте отзывы';
+                ?>
             </div>
             <div class="center a_order_wrap">
                 <a href="#a_first_section" class="a_order">заказать</a>
             </div>
         </section>
-
         <section class="a_contacts" id="contacts">
             <h2>Контакты</h2>
             <div class="flex_main flex_wrap flex_jcontent-around">

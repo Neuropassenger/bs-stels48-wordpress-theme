@@ -320,6 +320,23 @@ footer select {
     -moz-appearance: none;
     -webkit-appearance: none;
     appearance: none;
+    width: 100%;
+}
+
+.form_select {
+    position: relative;
+    /*width: 100%;*/
+}
+
+.form_select:after {
+    font-family: "Font Awesome 5 Free";
+    content: '\f150';
+    font-weight: 400;
+    position: absolute;
+    right: 2%;
+    color: #fff;
+    font-size: 10px;
+    pointer-events: none;
 }
 
 #main_form button,
@@ -568,7 +585,9 @@ footer span.ajax-loader {
 }
 
 .a_comments .owl-item img {
-    width: 115px !important;
+    width: unset !important;
+    border-radius: 75px;
+    margin: 0 auto;
 }
 
 .a_one_comment p {
@@ -637,10 +656,6 @@ footer form {
 
 footer input:nth-child(2), footer input:nth-child(3), footer select {
     margin-bottom: 20px;
-}
-
-footer select {
-    padding-left: 0;
 }
 
 footer button {
