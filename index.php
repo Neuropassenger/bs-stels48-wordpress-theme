@@ -28,7 +28,7 @@
                     <img src="img/pilot950md@2x.png" alt="stels pilot 950">
                 </div>
                 <div class="a_slide">
-                    <p>STELS Navigator 500 V</p>
+                    <p>STE-LS Navigator 500 V</p>
                     <img src="img/navigator500v@2x.png" alt="stels navigator 500">
                 </div>
             </div>
@@ -38,216 +38,66 @@
                 <h2>Каталог</h2>
             </div>
             <div class="a_goods flex_main flex_wrap flex_jcontent-around">
-                <div data-model-id="1" class="a_position">
-                    <h4>STELS Navigator 630 MD</h4>
-                    <img src="img/navigator630.png" alt="stels navigator 630">
-                    <table>
-                        <tr>
-                            <td>Тип рамы</td>
-                            <td>алюминий</td>
-                        </tr>
-                        <tr>
-                            <td>Размер рамы</td>
-                            <td>20</td>
-                        </tr>
-                        <tr>
-                            <td>Размер колес</td>
-                            <td>26</td>
-                        </tr>
-                        <tr>
-                            <td>Количество скоростей</td>
-                            <td>21</td>
-                        </tr>
-                        <tr>
-                            <td>Тип тормозов</td>
-                            <td>дисковые</td>
-                        </tr>
-                        <tr>
-                            <td>Цвет</td>
-                            <td>серый/синий</td>
-                        </tr>
-                        <tr>
-                            <td>Цена</td>
-                            <td>19 000</td>
-                        </tr>
-                    </table>
-                    <button class="a_catalog_button" id="navigator_630">заказать</button>
-                </div>
-                <div data-model-id="2" class="a_position">
-                    <h4>STELS Navigator 300 Gent</h4>
-                    <img src="img/navigator300gent@2x.png" alt="stels navigator 300">
-                    <table>
-                        <tr>
-                            <td>Тип рамы</td>
-                            <td>сталь</td>
-                        </tr>
-                        <tr>
-                            <td>Размер рамы</td>
-                            <td>20</td>
-                        </tr>
-                        <tr>
-                            <td>Размер колес</td>
-                            <td>28</td>
-                        </tr>
-                        <tr>
-                            <td>Количество скоростей</td>
-                            <td>1</td>
-                        </tr>
-                        <tr>
-                            <td>Тип тормозов</td>
-                            <td>задний ножной</td>
-                        </tr>
-                        <tr>
-                            <td>Цвет</td>
-                            <td>синий/серый</td>
-                        </tr>
-                        <tr>
-                            <td>Цена</td>
-                            <td>6 500</td>
-                        </tr>
-                    </table>
-                    <button class="a_catalog_button" id="navigator_300">заказать</button>
-                </div>
-                <div data-model-id="3" class="a_position">
-                    <h4>STELS Miss 5000 MD</h4>
-                    <img src="img/miss5000md@2x.png" alt="stels miss 5000">
-                    <table>
-                        <tr>
-                            <td>Тип рамы</td>
-                            <td>сталь</td>
-                        </tr>
-                        <tr>
-                            <td>Размер рамы</td>
-                            <td>17</td>
-                        </tr>
-                        <tr>
-                            <td>Размер колес</td>
-                            <td>26</td>
-                        </tr>
-                        <tr>
-                            <td>Количество скоростей</td>
-                            <td>21</td>
-                        </tr>
-                        <tr>
-                            <td>Тип тормозов</td>
-                            <td>дисковые</td>
-                        </tr>
-                        <tr>
-                            <td>Цвет</td>
-                            <td>бирюзовый</td>
-                        </tr>
-                        <tr>
-                            <td>Цена</td>
-                            <td>13 720</td>
-                        </tr>
-                    </table>
-                    <button class="a_catalog_button" id="miss_5000">заказать</button>
-                </div>
-                <div data-model-id="4" class="a_position">
-                    <h4>STELS Focus MD</h4>
-                    <img src="img/focusmd@2x.png" alt="stels focus MD">
-                    <table>
-                        <tr>
-                            <td>Тип рамы</td>
-                            <td>сталь</td>
-                        </tr>
-                        <tr>
-                            <td>Размер рамы</td>
-                            <td>18</td>
-                        </tr>
-                        <tr>
-                            <td>Размер колес</td>
-                            <td>26</td>
-                        </tr>
-                        <tr>
-                            <td>Количество скоростей</td>
-                            <td>21</td>
-                        </tr>
-                        <tr>
-                            <td>Тип тормозов</td>
-                            <td>дисковые</td>
-                        </tr>
-                        <tr>
-                            <td>Цвет</td>
-                            <td>серый/синий</td>
-                        </tr>
-                        <tr>
-                            <td>Цена</td>
-                            <td>14 600</td>
-                        </tr>
-                    </table>
-                    <button class="a_catalog_button" id="focus_md">заказать</button>
-                </div>
-                <div data-model-id="5" class="a_position">
-                    <h4>STELS Pilot 950 MD</h4>
-                    <img src="img/pilot950md@2x.png" alt="stels pilot 950">
-                    <table>
-                        <tr>
-                            <td>Тип рамы</td>
-                            <td>алюминий</td>
-                        </tr>
-                        <tr>
-                            <td>Размер рамы</td>
-                            <td>17.5</td>
-                        </tr>
-                        <tr>
-                            <td>Размер колес</td>
-                            <td>26</td>
-                        </tr>
-                        <tr>
-                            <td>Количество скоростей</td>
-                            <td>21</td>
-                        </tr>
-                        <tr>
-                            <td>Тип тормозов</td>
-                            <td>дисковые</td>
-                        </tr>
-                        <tr>
-                            <td>Цвет</td>
-                            <td>темно-синий</td>
-                        </tr>
-                        <tr>
-                            <td>Цена</td>
-                            <td>17 350</td>
-                        </tr>
-                    </table>
-                    <button class="a_catalog_button" id="pilot_950">заказать</button>
-                </div>
-                <div data-model-id="6" class="a_position">
-                    <h4>STELS Navigator 500 V</h4>
-                    <img src="img/navigator500v@2x.png" alt="stels navigator 500">
-                    <table>
-                        <tr>
-                            <td>Тип рамы</td>
-                            <td>сталь</td>
-                        </tr>
-                        <tr>
-                            <td>Размер рамы</td>
-                            <td>20</td>
-                        </tr>
-                        <tr>
-                            <td>Размер колес</td>
-                            <td>26</td>
-                        </tr>
-                        <tr>
-                            <td>Количество скоростей</td>
-                            <td>21</td>
-                        </tr>
-                        <tr>
-                            <td>Тип тормозов</td>
-                            <td>ободные</td>
-                        </tr>
-                        <tr>
-                            <td>Цвет</td>
-                            <td>серый/синий</td>
-                        </tr>
-                        <tr>
-                            <td>Цена</td>
-                            <td>12 300</td>
-                        </tr>
-                    </table>
-                    <button class="a_catalog_button" id="navigator_500">заказать</button>
-                </div>
+                <?php
+                $query_for_products = array(
+                    'post_type' => 'product',
+                    'post_status' => 'publish',
+                    'nopaging' => true
+                );
+                $products = new WP_Query( $query_for_products );
+                if( $products->have_posts() ) {
+                    while( $products->have_posts() ) {
+                    $products->the_post(); ?>
+                    <div class="a_position">
+                        <h4><?php the_title(); ?></h4>
+                        <?php the_post_thumbnail( 'medium' ); ?>
+                        <?php /*global $product;
+                            $product->list_attributes();*/ ?>
+                        <table>
+                            <tr>
+                                <td>Тип рамы</td>
+                                <td><?php echo getAttr( 'frame-type' );?></td>
+                            </tr>
+                            <tr>
+                                <td>Размер рамы</td>
+                                <td><?php echo getAttr( 'frame-size' );?></td>
+                            </tr>
+                            <tr>
+                                <td>Размер колес</td>
+                                <td><?php echo getAttr( 'wheel-size' );?></td>
+                            </tr>
+                            <tr>
+                                <td>Количество скоростей</td>
+                                <td><?php echo getAttr( 'count-speed' );?></td>
+                            </tr>
+                            <tr>
+                                <td>Тип тормозов</td>
+                                <td><?php echo getAttr( 'break-type' );?></td>
+                            </tr>
+                            <tr>
+                                <td>Цвет</td>
+                                <td><?php echo getAttr( 'colour' );?></td>
+                            </tr>
+                            <tr>
+                                <td>Дополнтельно</td>
+                                <td><?php echo getAttr( 'extra' );?></td>
+                            </tr>
+                            <tr>
+                                <td>Цена</td>
+                                <td><?php
+                                    $product_id = get_the_ID();
+                                    $product = wc_get_product( $product_id );
+                                    echo number_format($product->get_regular_price(), 0, ".", " ");
+                                    ?>
+                                </td>
+                            </tr>
+                        </table>
+                        <button class="a_catalog_button" id="navigator_630">заказать</button>
+                    </div>
+                    <?php
+                    } wp_reset_postdata(); // сбрасываем переменную $post
+                } else echo 'Адмиминистратор, добавьте товары';
+                ?>
             </div>
         </section>
         <section class="a_about" id="aboutus">
@@ -330,10 +180,14 @@
                     while( $query->have_posts() ) {
                         $query->the_post(); ?>
                         <div class="a_one_comment">
+                            <!--<i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>-->
                             <?php the_post_thumbnail( array( 115, 115 ) ); ?>
+                            <div class="rating">
+                                <span style="display: none"><?php echo get_post_meta( get_the_ID(), 'rating' )[0]; ?></span>
+                            </div>
                             <p><?php the_content(); ?></p>
                             <b><?php the_title(); ?></b>
-                            <p><?php echo get_post_meta( get_the_ID(), 'rating' )[0]; ?></p>
                         </div>
                     <?php
                     }

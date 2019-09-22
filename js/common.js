@@ -27,7 +27,7 @@ jQuery(document).ready(function( $ ) {
         autoplayTimeout: 8000,
         navText: ["<img src='wp-content/themes/bs-stels48/img/arrow_left.png'>", "<img src='wp-content/themes/bs-stels48/img/arrow_right.png'>"]
     });
-    
+
 //плавная прокрутка для верхнего и нижнего меню
     $('.smooth-scroll').on('click', 'a:not(:last)', smoothScroll);
 
@@ -35,24 +35,24 @@ jQuery(document).ready(function( $ ) {
     $('.a_order_wrap').on('click', 'a', smoothScroll);
 
 //автозаполнение формы и выбор элемента в карусели
-    $('.a_position').on('click', 'button', function() {
-        let id = $(this).parent().attr('data-model-id'),
+    $('.a_position').on('click', 'button', function () {
+        let model = $(this).siblings('h4').text(),
             top = $('.a_first_section').offset().top;
         $('body,html').animate({scrollTop: top}, 1000);
-        $(`#main_form select option[value="${id}"]`).prop('selected', true);
-        setTimeout(function() {
-            setModelInOwl(id)
+        $('#main_form select option:contains(model)').prop('selected', true);
+        setTimeout(function () {
+            setModelInOwl(model);
         }, 1000);
     });
 
 //отслеживание ручного изменения формы 
-    $("#main_form select").change(function() {
+    $("#main_form select").change(function () {
         let id = $(this).val();
         setModelInOwl(id);
     });
 
 //установка padding для многострочных заголовков
-    $('.a_wrap').css('padding-top', function() {
+    $('.a_wrap').css('padding-top', function () {
         let h4 = $(this).children('.a_descrip').children('h4');
         if (h4.height() > 30) {
             return 18;
@@ -61,7 +61,7 @@ jQuery(document).ready(function( $ ) {
     });
 
 //бургер и моб меню
-    $('.menu_btn').on('click', function(e) {
+    $('.menu_btn').on('click', function (e) {
         e.preventDefault;
         if ($('.menu_phone').length) {
             genMobMenu();
@@ -70,9 +70,27 @@ jQuery(document).ready(function( $ ) {
         }
     });
 //ослеживание страницы, чтобы изменить положение бургера
-    $(window).on("scroll", function() {
+    $(window).on("scroll", function () {
         if ($(window).scrollTop() > 50) $('.burger').css('right', '0');
         else $('.burger').css('right', '23px');
+    });
+
+//помещаем options в select формы
+    //$('.wpcf7-select').html($('#options').html());
+
+//делаем рейтинг из звездочек
+    $('.owl-item:not(.cloned) .rating').append(function () {
+        let solidStars = '';
+        let regularStars = '';
+        let countSolidStars = +$(this).children('span').text();
+        let countRegularStars = 5 - countSolidStars;
+        for (let i = 0; i < countSolidStars; i++) {
+            solidStars += '<i class="fas fa-star"></i>';
+        }
+        for (let i = 0; i < countRegularStars; i++) {
+            regularStars += '<i class="far fa-star"></i>';
+        }
+        return solidStars + regularStars;
     });
 
     function setModelInOwl(id) {
@@ -109,6 +127,8 @@ jQuery(document).ready(function( $ ) {
         $('.logo, main, footer').css('display', 'flex');
         $('main').css('display', 'block');
     }
+
+
 });
 
 ymaps.ready(init);

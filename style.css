@@ -494,6 +494,13 @@ header .logo {
     letter-spacing: 0.33px;
 }
 
+tr:last-child > td:last-child:after {
+    font-family: "Font Awesome 5 Free";
+    content: '\f158';
+    font-weight: 600;
+    font-size: 10px;
+}
+
 /* О нас */
 
 .a_about h2 {
@@ -646,6 +653,12 @@ header .logo {
     padding: 0 50px;
 }
 
+.rating {
+    padding-top: 20px;
+}
+.rating i {
+    color: #97D700;
+}
 /* Контакты */
 
 .a_contacts {

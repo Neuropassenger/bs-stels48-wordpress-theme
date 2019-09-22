@@ -146,3 +146,18 @@ function wph_require_post_elements( $post ) {
     </script>
     <?php
 }}
+
+function getAttr( $slugField ) {
+    global $product;
+    $attrs = get_the_terms( $product->id, "pa_{$slugField}" );
+    if ( $attrs ) {
+        foreach ( $attrs as $value ) {
+            if ( $value ) {
+                $attrs_arr = $value->to_array();
+                $arr_result[] = $attrs_arr[ 'name' ];
+            }
+        }
+        return implode( ", ", $arr_result );
+    }
+    return '';
+}//получаем атрибут товара
