@@ -150,7 +150,7 @@
 }
 
 @media (max-width: 575px) {
-    
+
     body {
         font-size: 12px;
     }
@@ -285,6 +285,7 @@
     .a_payment {
         margin-top: 0;
     }
+
     .a_payment, .a_delivery {
         min-width: 0;
     }

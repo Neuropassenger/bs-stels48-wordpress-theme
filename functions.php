@@ -6,12 +6,13 @@ add_action( 'wp_enqueue_scripts', 'stels48_media' );// подключение с
 function stels48_media() {
     wp_enqueue_style( 'normalize', get_template_directory_uri() . '/css/normalize.css' );
     wp_enqueue_style( 'main', get_stylesheet_uri() );
+    wp_enqueue_style( 'fonts', get_template_directory_uri() . '/css/fonts.css' );
     wp_enqueue_style( 'adaptiv', get_template_directory_uri() . '/css/media.css' );
     wp_enqueue_style( 'flex', get_template_directory_uri() . '/libs/flex_css/flex.css' );
     wp_enqueue_style( 'fancybox', get_template_directory_uri() . '/libs/fancybox/jquery.fancybox.min.css' );
     wp_enqueue_style( 'owlcarousel', get_template_directory_uri() . '/libs/owlcarousel/owl.carousel.min.css' );
     wp_enqueue_style( 'fontawesome', '//use.fontawesome.com/releases/v5.10.2/css/all.css' );
-    wp_enqueue_style( 'fonts', '//fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700&display=swap' );
+    //wp_enqueue_style( 'fonts', '//fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700&display=swap' );
     wp_enqueue_script( 'fancybox', get_template_directory_uri() . '/libs/fancybox/jquery.fancybox.min.js', array( 'jquery' ) );
     wp_enqueue_script( 'owlcarousel', get_template_directory_uri() . '/libs/owlcarousel/owl.carousel.min.js', array( 'jquery' ) );
     wp_enqueue_script( 'yandex_map', '//api-maps.yandex.ru/2.1/?apikey=<2044817c-a630-48b1-acf8-5e08fd4884d3>&lang=ru_RU',  array( 'jquery' ) );
@@ -170,7 +171,8 @@ function cf7_select() {
     $for_options = array(
         'post_type'              => array( 'product' ),
         'post_status'            => array( 'publish' ),
-        'nopaging'               => true
+        'nopaging'               => true,
+        'order'                  => 'ASC'
     );
 
     $optionsQuery = new WP_Query( $for_options );
@@ -188,71 +190,3 @@ function cf7_select() {
                 <select name="model" class="wpcf7-form-control wpcf7-select" aria-invalid="false">' . $options . '</select>
             </div>';
 }
-
-add_action( 'add_meta_boxes', 'custom_post_sort' );//произвольная сортировка для продуктов
-function custom_post_sort( $post ) {
-    add_meta_box( 'custom_post_sort_box', 'Позиция в выдаче', 'custom_post_order', 'product', 'side' );
-}
-function custom_post_order ( $product ) {
-    wp_nonce_field( basename( __FILE__ ), 'custom_post_order_nonce' );
-    $current_pos = get_post_meta( $product->ID, '_custom_post_order', true); ?>
-    <p>Введите позицию вывода для продукта.</p>
-    <p><input type="number" name="pos" value="<?php echo $current_pos; ?>" /></p>
-    <?php
-}
-
-add_action( 'save_post', 'save_custom_post_order' );//сохраняем метаданные продукта
-function save_custom_post_order( $product_id ){
-    if ( !isset( $_POST['custom_post_order_nonce'] )
-        || !wp_verify_nonce( $_POST['custom_post_order_nonce'], basename( __FILE__ ) ) ) {
-        return;
-    }
-    if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ){
-        return;
-    }
-    if ( ! current_user_can( 'edit_post', $product_id ) ){
-        return;
-    }
-    if ( isset( $_REQUEST['pos'] ) ) {
-        update_post_meta( $product_id, '_custom_post_order', sanitize_text_field( $_POST['pos'] ) );
-    }
-}
-
-add_filter('manage_product_posts_columns' , 'add_pos_product_column', 0);//добавляем колонку позиции в админ панели
-function add_pos_product_column( $columns ) {
-    $positionForColumn = 2;
-    $newColumn = array( 'pos' => 'Position', );
-    $arr1 = array_slice( $columns, 0, $positionForColumn );
-    $arr2 = array_slice( $columns, $positionForColumn );
-    return array_merge($arr1, $newColumn, $arr2);
-}
-
-add_action( 'manage_posts_custom_column' , 'custom_post_order_value' , 10 , 2 );//вывод данных в новой колонке
-function custom_post_order_value( $column, $post_id ){
-    if ($column == 'pos' ){
-        echo '<p>' . get_post_meta( $post_id, '_custom_post_order', true) . '</p>';
-    }
-}
-
-add_action( 'pre_get_posts' , 'custom_post_order_sort' );//вывод постов согласно position
-function custom_post_order_sort( $query ) {
-    if ( $query->is_main_query() && is_home() ){
-        $query->set( 'orderby', 'meta_value' );
-        $query->set( 'meta_key', '_custom_post_order' );
-        $query->set( 'order' , 'ASC' );
-    }
-}
-
-
-/*add_filter( 'manage_'.'edit-post'.'_sortable_columns', 'add_views_sortable_column' );//добавляем сортировку новой колонке
-function add_views_sortable_column( $sortable_columns ){
-    $sortable_columns['views'] = [ 'views_views', false ];
-    // false = asc (по умолчанию)
-    // true  = desc
-    return $sortable_columns;
-}
-
-add_action('admin_head', 'add_views_column_css');//добавляем ширину
-function add_views_column_css(){
-    echo '<style type="text/css">.column-views{ width:10%; }</style>';
-}*/

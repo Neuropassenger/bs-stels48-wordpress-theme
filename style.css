@@ -17,7 +17,7 @@ body {
 
 h1 {
     font-size: 35px;
-    margin-bottom: 0;
+    margin: 10px 0 0;
 }
 
 h2 {
@@ -196,6 +196,10 @@ footer .wpcf7-response-output {
 
 .fancybox-button svg {
     color: #fff;
+}
+
+.wpcf7-not-valid-tip {
+    display: none;
 }
 /* Шапка сайта */
 
@@ -394,33 +398,31 @@ header .logo {
 }
 
 .a_slide p {
-    margin-bottom: 46px;
+    margin: 11px 0 28px;
 }
 
 .a_slide img {
     height: auto;
 }
 
-.a_first_section .owl-prev {
+.a_first_section .owl-prev,
+.a_first_section .owl-next {
     position: absolute;
-    left: -70px;
-    top: -200px;
+    top: -150px;
     bottom: 0;
     width: 25%;
     height: 200px;
     margin: auto 0;
-    text-align: right;
+}
+
+.a_first_section .owl-prev {
+    left: -70px;
+    text-align: left;
 }
 
 .a_first_section .owl-next {
-    position: absolute;
     right: -70px;
-    top: -200px;
-    bottom: 0;
-    width: 25%;
-    height: 200px;
-    margin: auto 0;
-    text-align: left
+    text-align: right;
 }
 
 .a_first_section button img {
@@ -428,7 +430,12 @@ header .logo {
 }
 
 .owl-dots {
-    padding-top: 7px;
+    width: 60%;
+    position: absolute;
+    top: 12px;
+    right: -18px;
+    background-color: #fff;
+    z-index: 1;
 }
 
 .a_first_section .owl-dot {
@@ -478,12 +485,13 @@ header .logo {
 
 .a_catalog tr > td:first-child {
     font-weight: 600;
-    width: 40%;
+    width: 43%;
 }
 
 .a_catalog img {
     height: auto;
     width: 100%;
+    cursor: pointer;
 }
 
 .a_catalog table {
@@ -686,11 +694,14 @@ header .logo {
 }
 
 .a_contacts_info p {
-    padding-bottom: 20px;
+    margin: 5px 0 30px;
 }
 
-.a_contacts_info b {
+.a_contacts_info h4 {
+    text-align: left;
+    font-size: 14px;
     font-weight: 600;
+    margin: 0;
 }
 
 #map {

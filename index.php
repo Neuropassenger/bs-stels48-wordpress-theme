@@ -1,4 +1,14 @@
-<?php get_header(); ?>
+<?php get_header();
+$query_for_products = array(
+    'post_type' => 'product',
+    'post_status' => 'publish',
+    'order' => 'ASC',
+    'nopaging' => true
+);
+$products = new WP_Query( $query_for_products );
+$product_id = get_the_ID();
+$product = wc_get_product( $product_id );
+?>
     <main>
         <section class="a_first_section flex_main flex_wrap flex_jcontent-around" id="a_first_section">
             <div>
@@ -8,12 +18,6 @@
             </div>
             <div class="owl-carousel" id="a_main_slider">
                 <?php
-                $query_for_products = array(
-                    'post_type' => 'product',
-                    'post_status' => 'publish',
-                    'nopaging' => true
-                );
-                $products = new WP_Query( $query_for_products );
                 if( $products->have_posts() ) {
                     while( $products->have_posts() ) {
                         $products->the_post(); ?>
@@ -33,28 +37,17 @@
             </div>
             <div class="a_goods flex_main flex_wrap flex_jcontent-around">
                 <?php
-                $query_for_products = array(
-                    'post_type' => 'product',
-                    'post_status' => 'publish',
-                    /*'meta_key' => '_custom_post_order',
-                    'orderby' => 'meta_value',*/
-                    'order' => 'ASC',
-                    'nopaging' => true
-                );
-                $products = new WP_Query( $query_for_products );
                 if( $products->have_posts() ) {
                     while( $products->have_posts() ) {
-                    $products->the_post();?>
+                    $products->the_post(); ?>
                     <div class="a_position flex_main flex_column flex_jcontent-between">
                         <div>
                             <h4><?php the_title(); ?></h4>
                             <h5><?php
-                                $product_id = get_the_ID();
-                                $product = wc_get_product( $product_id );
                                 echo number_format($product->get_regular_price(), 0, ".", " ");
                                 ?> руб.
                             </h5>
-                            <div class="img_position"><?php the_post_thumbnail( 'large' ); ?></div>
+                            <div class="img_position"><?php the_post_thumbnail( 'medium' ); ?></div>
                             <table>
                                 <tr>
                                     <td>Тип рамы</td>
@@ -90,7 +83,7 @@
                                 </tr>
                             </table>
                         </div>
-                        <button class="a_catalog_button" id="navigator_630">заказать</button>
+                        <button class="a_catalog_button">заказать</button>
                     </div>
                     <?php
                     } wp_reset_postdata(); // сбрасываем переменную $post
@@ -103,21 +96,21 @@
                 <h2><?php echo get_post( 301 )->post_title; ?></h2>
             </div>
             <div class="a_wrap flex_main flex_wrap flex_jcontent-around">
-                <?php echo get_the_post_thumbnail( 303 ); ?>
+                <?php echo get_the_post_thumbnail( 303, 'large' ); ?>
                 <div class="a_descrip flex_main flex_column flex_jcontent-around">
                     <h4><?php echo get_post( 303 )->post_title; ?></h4>
                     <?php echo get_post( 303 )->post_content; ?>
                 </div>
             </div>
             <div class="a_wrap flex_main flex_wrap flex_row-revers flex_jcontent-around">
-                <?php echo get_the_post_thumbnail( 314 ); ?>
+                <?php echo get_the_post_thumbnail( 314, 'large' ); ?>
                 <div class="a_descrip flex_main flex_column flex_jcontent-around">
                     <h4><?php echo get_post( 314 )->post_title; ?></h4>
                     <?php echo get_post( 314 )->post_content; ?>
                 </div>
             </div>
             <div class="a_wrap flex_main flex_wrap flex_jcontent-around">
-                <?php echo get_the_post_thumbnail( 319 ); ?>
+                <?php echo get_the_post_thumbnail( 319, 'large' ); ?>
                 <div class="a_descrip flex_main flex_column flex_jcontent-around">
                     <h4><?php echo get_post( 319 )->post_title; ?></h4>
                     <?php echo get_post( 319 )->post_content; ?>
@@ -145,21 +138,21 @@
                 <h2><?php echo get_post( 322 )->post_title; ?></h2>
             </div>
             <div class="a_wrap flex_main flex_wrap flex_jcontent-around">
-                <?php echo get_the_post_thumbnail( 324 ); ?>
+                <?php echo get_the_post_thumbnail( 324, 'large' ); ?>
                 <div class="a_descrip flex_main flex_column flex_jcontent-around">
                     <h4><?php echo get_post( 324 )->post_title; ?></h4>
                     <?php echo get_post( 324 )->post_content; ?>
                 </div>
             </div>
             <div class="a_wrap flex_main flex_wrap flex_row-revers flex_jcontent-around">
-                <?php echo get_the_post_thumbnail( 328 ); ?>
+                <?php echo get_the_post_thumbnail( 328, 'large' ); ?>
                 <div class="a_descrip flex_main flex_column flex_jcontent-around">
                     <h4><?php echo get_post( 328 )->post_title; ?></h4>
                     <?php echo get_post( 328 )->post_content; ?>
                 </div>
             </div>
             <div class="a_wrap flex_main flex_wrap flex_jcontent-around">
-                <?php echo get_the_post_thumbnail( 331 ); ?>
+                <?php echo get_the_post_thumbnail( 331, 'large' ); ?>
                 <div class="a_descrip flex_main flex_column flex_jcontent-around">
                     <h4><?php echo get_post( 331 )->post_title; ?></h4>
                     <?php echo get_post( 331 )->post_content; ?>

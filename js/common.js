@@ -6,10 +6,12 @@ jQuery(document).ready(function( $ ) {
         loop: true,
         nav: true,
         autoplay: true,
+        startPosition: 3,
+        lazyLoad: true,
         autoplayHoverPause: true,
         autoplaySpeed: 1500,
         navSpeed: 1500,
-        dotsSpeed: 1500,
+        dotsSpeed: 500,
         autoplayTimeout: 5000,
         navText: ["<img src='wp-content/themes/bs-stels48/img/arrow_left.png'>", "<img src='wp-content/themes/bs-stels48/img/arrow_right.png'>"]
     });
@@ -23,7 +25,6 @@ jQuery(document).ready(function( $ ) {
         autoplayHoverPause: true,
         autoplaySpeed: 1500,
         navSpeed: 1500,
-        dotsSpeed: 1500,
         autoplayTimeout: 8000,
         navText: ["<img src='wp-content/themes/bs-stels48/img/arrow_left.png'>", "<img src='wp-content/themes/bs-stels48/img/arrow_right.png'>"]
     });
@@ -34,17 +35,11 @@ jQuery(document).ready(function( $ ) {
 //плавная прокрутка для "заказать", которые разбросаны по сайту
     $('.a_order_wrap').on('click', 'a', smoothScroll);
 
-//автозаполнение формы и выбор элемента в карусели
-    $('.a_position').on('click', 'button', function () {
-        let model = $(this).siblings('div').children('h4').text(),
-            top = $('.a_first_section').offset().top;
+//автозаполнение формы и выбор элемента в карусели при щелчке на заказать
+    $('.a_position').on('click', 'button', setFormAndOwl);
 
-        $('body,html').animate({scrollTop: top}, 1000);
-        let id = $(`#main_form select option:contains(${model})`).prop('selected', true).attr('model-id');
-        setTimeout(function () {
-            setModelInOwl(id);
-        }, 1000);
-    });
+//автозаполнение формы и выбор элемента в карусели при щелчке на картинку
+    $('.a_position').on('click', 'img', setFormAndOwl);
 
 //отслеживание ручного изменения формы 
     $("#main_form select").change(function() {
@@ -117,12 +112,30 @@ jQuery(document).ready(function( $ ) {
         return solidStars + regularStars;
     });
 
+    function setFormAndOwl() {
+        let model;
+        if (($(this).get(0).tagName) == 'BUTTON' ) {
+            model = $(this).siblings('div').children('h4').text();
+
+        } else if (($(this).get(0).tagName) == 'IMG') {
+            model = $(this).parent().siblings('h4').text();
+        }
+        let top = $('.a_first_section').offset().top;
+
+        $('body,html').animate({scrollTop: top}, 1000);
+        let id = $(`#main_form select option:contains(${model})`).prop('selected', true).attr('model-id');
+        console.log(id);
+        setTimeout(function () {
+            setModelInOwl(id);
+        }, 1000);
+    }
+
     function setModelInOwl(id) {
         let owl = $("#a_main_slider").owlCarousel();
         owl.data('owl.carousel').options.autoplay = false;
-        owl.trigger('to.owl.carousel', [id - 1, 1000]);
+        owl.trigger('to.owl.carousel', [id - 1, 500]);
         owl.trigger('refresh.owl.carousel');
-    };
+    }
 
     function smoothScroll() {
         if ($('.mob_main_menu').length) {
