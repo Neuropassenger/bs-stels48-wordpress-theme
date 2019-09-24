@@ -154,7 +154,7 @@ form button {
     border: none !important;
     color: #fff;
     position: absolute;
-    bottom: 0;
+    bottom: -13px;
     left: 0;
     right: 0;
     margin: auto;
@@ -397,6 +397,10 @@ header .logo {
     margin-bottom: 46px;
 }
 
+.a_slide img {
+    height: auto;
+}
+
 .a_first_section .owl-prev {
     position: absolute;
     left: -70px;
@@ -424,11 +428,7 @@ header .logo {
 }
 
 .owl-dots {
-    position: absolute;
-    right: 0;
-    top: 18px;
-    background-color: #fff;
-    z-index: 1;
+    padding-top: 7px;
 }
 
 .a_first_section .owl-dot {
@@ -453,13 +453,37 @@ header .logo {
     margin: 0 30px 55px 30px;
 }
 
+.a_position h4 {
+    text-align: left;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.a_position h5 {
+    text-align: left;
+    font-weight: 300;
+    margin: 0 0 15px;
+}
+
 .a_catalog td {
     line-height: 18px;
 }
 
+.a_catalog td div {
+    vertical-align: middle;
+    width: 0;
+    display: inline-block;
+    margin: 5px;
+}
+
+.a_catalog tr > td:first-child {
+    font-weight: 600;
+    width: 40%;
+}
+
 .a_catalog img {
+    height: auto;
     width: 100%;
-    padding-bottom: 8px;
 }
 
 .a_catalog table {
@@ -494,13 +518,9 @@ header .logo {
     letter-spacing: 0.33px;
 }
 
-tr:last-child > td:last-child:after {
-    font-family: "Font Awesome 5 Free";
-    content: '\f158';
-    font-weight: 600;
-    font-size: 10px;
+.img_position {
+    height: 180px;
 }
-
 /* О нас */
 
 .a_about h2 {

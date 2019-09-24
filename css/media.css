@@ -223,6 +223,11 @@
         margin: 0 0 40px 0;
     }
 
+    .img_position {
+        height: unset;
+        margin-bottom: 20px;
+    }
+
     .a_position:last-child {
         margin: 0;
     }

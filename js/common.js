@@ -36,19 +36,24 @@ jQuery(document).ready(function( $ ) {
 
 //автозаполнение формы и выбор элемента в карусели
     $('.a_position').on('click', 'button', function () {
-        let model = $(this).siblings('h4').text(),
+        let model = $(this).siblings('div').children('h4').text(),
             top = $('.a_first_section').offset().top;
+
         $('body,html').animate({scrollTop: top}, 1000);
-        $('#main_form select option:contains(model)').prop('selected', true);
+        let id = $(`#main_form select option:contains(${model})`).prop('selected', true).attr('model-id');
         setTimeout(function () {
-            setModelInOwl(model);
+            setModelInOwl(id);
         }, 1000);
     });
 
 //отслеживание ручного изменения формы 
-    $("#main_form select").change(function () {
-        let id = $(this).val();
-        setModelInOwl(id);
+    $("#main_form select").change(function() {
+        $(this).find('option').each(function() {
+            if ($(this).prop('selected') == true) {
+                let id = $(this).attr('model-id');
+                setModelInOwl(id);
+            }
+        });
     });
 
 //установка padding для многострочных заголовков
@@ -74,12 +79,31 @@ jQuery(document).ready(function( $ ) {
         if ($(window).scrollTop() > 50) $('.burger').css('right', '0');
         else $('.burger').css('right', '23px');
     });
+//убираем пустые поля из таблицы атрибутов товара
+    $('.a_position tr:has(td:empty)').detach();
 
-//помещаем options в select формы
-    //$('.wpcf7-select').html($('#options').html());
+//делаем квадратики для цветов товара
+    $('.a_position td:contains(Цвет)').siblings('td').append(function(index, value) {
+        let colours = value.split(', ');
+        $(this).html(null);
+        let squares = '';
+        colours.forEach(function(colour) {
+            if (colour.indexOf('/') != -1) {
+                let twoColoursSqure = colour.split('/');
+                squares += `<div style="border: 7px solid; border-top-color: ${twoColoursSqure[0]};
+                                        border-left-color: ${twoColoursSqure[0]};
+                                        border-right-color: ${twoColoursSqure[1]};
+                                        border-bottom-color: ${twoColoursSqure[1]};">
+                            </div>`;
+            } else {
+                squares += `<div style="border: 7px solid ${colour};"></div>`;
+            }
+        });
+        return squares;
+    });
 
 //делаем рейтинг из звездочек
-    $('.owl-item:not(.cloned) .rating').append(function () {
+    $( '.owl-item:not( .cloned ) .rating' ).append( function () {
         let solidStars = '';
         let regularStars = '';
         let countSolidStars = +$(this).children('span').text();
@@ -96,7 +120,7 @@ jQuery(document).ready(function( $ ) {
     function setModelInOwl(id) {
         let owl = $("#a_main_slider").owlCarousel();
         owl.data('owl.carousel').options.autoplay = false;
-        owl.trigger('to.owl.carousel', [id - 1, 1500]);
+        owl.trigger('to.owl.carousel', [id - 1, 1000]);
         owl.trigger('refresh.owl.carousel');
     };
 

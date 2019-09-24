@@ -7,30 +7,24 @@
                 <?php echo do_shortcode( '[contact-form-7 id="189" html_id="main_form" html_class="flex_main flex_column"]') ; ?>
             </div>
             <div class="owl-carousel" id="a_main_slider">
-                <div class="a_slide">
-                    <p>STELS Navigator 630 MD</p>
-                    <img src="img/navigator630@2x.png" alt="stels navigator 630">
-                </div>
-                <div class="a_slide">
-                    <p>STELS Navigator 300 Gent</p>
-                    <img src="img/navigator300gent@2x.png" alt="stels navigator 300">
-                </div>
-                <div class="a_slide">
-                    <p>STELS Miss 5000 MD</p>
-                    <img src="img/miss5000md@2x.png" alt="stels miss 5000">
-                </div>
-                <div class="a_slide">
-                    <p>STELS Focus MD</p>
-                    <img src="img/focusmd@2x.png" alt="stels focus MD">
-                </div>
-                <div class="a_slide">
-                    <p>STELS Pilot 950 MD</p>
-                    <img src="img/pilot950md@2x.png" alt="stels pilot 950">
-                </div>
-                <div class="a_slide">
-                    <p>STE-LS Navigator 500 V</p>
-                    <img src="img/navigator500v@2x.png" alt="stels navigator 500">
-                </div>
+                <?php
+                $query_for_products = array(
+                    'post_type' => 'product',
+                    'post_status' => 'publish',
+                    'nopaging' => true
+                );
+                $products = new WP_Query( $query_for_products );
+                if( $products->have_posts() ) {
+                    while( $products->have_posts() ) {
+                        $products->the_post(); ?>
+                        <div class="a_slide">
+                            <p><?php the_title(); ?></p>
+                            <?php the_post_thumbnail( 'large' ); ?>
+                        </div>
+                        <?php
+                    } wp_reset_postdata(); // сбрасываем переменную $post
+                } else echo 'Адмиминистратор, добавьте товары';
+                ?>
             </div>
         </section>
         <section class="a_catalog" id="catalog">
@@ -42,56 +36,60 @@
                 $query_for_products = array(
                     'post_type' => 'product',
                     'post_status' => 'publish',
+                    /*'meta_key' => '_custom_post_order',
+                    'orderby' => 'meta_value',*/
+                    'order' => 'ASC',
                     'nopaging' => true
                 );
                 $products = new WP_Query( $query_for_products );
                 if( $products->have_posts() ) {
                     while( $products->have_posts() ) {
-                    $products->the_post(); ?>
-                    <div class="a_position">
-                        <h4><?php the_title(); ?></h4>
-                        <?php the_post_thumbnail( 'medium' ); ?>
-                        <?php /*global $product;
-                            $product->list_attributes();*/ ?>
-                        <table>
-                            <tr>
-                                <td>Тип рамы</td>
-                                <td><?php echo getAttr( 'frame-type' );?></td>
-                            </tr>
-                            <tr>
-                                <td>Размер рамы</td>
-                                <td><?php echo getAttr( 'frame-size' );?></td>
-                            </tr>
-                            <tr>
-                                <td>Размер колес</td>
-                                <td><?php echo getAttr( 'wheel-size' );?></td>
-                            </tr>
-                            <tr>
-                                <td>Количество скоростей</td>
-                                <td><?php echo getAttr( 'count-speed' );?></td>
-                            </tr>
-                            <tr>
-                                <td>Тип тормозов</td>
-                                <td><?php echo getAttr( 'break-type' );?></td>
-                            </tr>
-                            <tr>
-                                <td>Цвет</td>
-                                <td><?php echo getAttr( 'colour' );?></td>
-                            </tr>
-                            <tr>
-                                <td>Дополнтельно</td>
-                                <td><?php echo getAttr( 'extra' );?></td>
-                            </tr>
-                            <tr>
-                                <td>Цена</td>
-                                <td><?php
-                                    $product_id = get_the_ID();
-                                    $product = wc_get_product( $product_id );
-                                    echo number_format($product->get_regular_price(), 0, ".", " ");
-                                    ?>
-                                </td>
-                            </tr>
-                        </table>
+                    $products->the_post();?>
+                    <div class="a_position flex_main flex_column flex_jcontent-between">
+                        <div>
+                            <h4><?php the_title(); ?></h4>
+                            <h5><?php
+                                $product_id = get_the_ID();
+                                $product = wc_get_product( $product_id );
+                                echo number_format($product->get_regular_price(), 0, ".", " ");
+                                ?> руб.
+                            </h5>
+                            <div class="img_position"><?php the_post_thumbnail( 'large' ); ?></div>
+                            <table>
+                                <tr>
+                                    <td>Тип рамы</td>
+                                    <td><?php echo getAttr( 'frame-type' );?></td>
+                                </tr>
+                                <tr>
+                                    <td>Размер рамы</td>
+                                    <td><?php echo getAttr( 'frame-size' );?></td>
+                                </tr>
+                                <tr>
+                                    <td>Размер колес</td>
+                                    <td><?php echo getAttr( 'wheel-size' );?></td>
+                                </tr>
+                                <tr>
+                                    <td>Cкоростей</td>
+                                    <td><?php echo getAttr( 'count-speed' );?></td>
+                                </tr>
+                                <tr>
+                                    <td>Тип тормозов</td>
+                                    <td><?php echo getAttr( 'break-type' );?></td>
+                                </tr>
+                                <tr>
+                                    <td>Цвет</td>
+                                    <td><?php echo getAttr( 'colour' );?></td>
+                                </tr>
+                                <tr>
+                                    <td>Обвес</td>
+                                    <td><?php echo getAttr( 'attachments' );?></td>
+                                </tr>
+                                <tr>
+                                    <td>Дополнтельно</td>
+                                    <td><?php echo getAttr( 'extra' );?></td>
+                                </tr>
+                            </table>
+                        </div>
                         <button class="a_catalog_button" id="navigator_630">заказать</button>
                     </div>
                     <?php
@@ -180,8 +178,6 @@
                     while( $query->have_posts() ) {
                         $query->the_post(); ?>
                         <div class="a_one_comment">
-                            <!--<i class="fas fa-star"></i>
-                            <i class="far fa-star"></i>-->
                             <?php the_post_thumbnail( array( 115, 115 ) ); ?>
                             <div class="rating">
                                 <span style="display: none"><?php echo get_post_meta( get_the_ID(), 'rating' )[0]; ?></span>
