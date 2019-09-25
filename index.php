@@ -23,7 +23,7 @@ $product = wc_get_product( $product_id );
                         $products->the_post(); ?>
                         <div class="a_slide">
                             <p><?php the_title(); ?></p>
-                            <?php the_post_thumbnail( 'large' ); ?>
+                            <?php the_post_thumbnail( 'large', 'class=no_lazy' ); ?>
                         </div>
                         <?php
                     } wp_reset_postdata(); // сбрасываем переменную $post
@@ -47,7 +47,7 @@ $product = wc_get_product( $product_id );
                                 echo number_format($product->get_regular_price(), 0, ".", " ");
                                 ?> руб.
                             </h5>
-                            <div class="img_position"><?php the_post_thumbnail( 'medium' ); ?></div>
+                            <div class="img_position"><?php the_post_thumbnail( array(600, 390) ); ?></div>
                             <table>
                                 <tr>
                                     <td>Тип рамы</td>
@@ -171,7 +171,7 @@ $product = wc_get_product( $product_id );
                     while( $query->have_posts() ) {
                         $query->the_post(); ?>
                         <div class="a_one_comment">
-                            <?php the_post_thumbnail( array( 115, 115 ) ); ?>
+                            <?php the_post_thumbnail( array( 115, 115 ), 'class=no_lazy' ); ?>
                             <div class="rating">
                                 <span style="display: none"><?php echo get_post_meta( get_the_ID(), 'rating' )[0]; ?></span>
                             </div>

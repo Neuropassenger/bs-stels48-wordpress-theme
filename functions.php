@@ -12,10 +12,8 @@ function stels48_media() {
     wp_enqueue_style( 'fancybox', get_template_directory_uri() . '/libs/fancybox/jquery.fancybox.min.css' );
     wp_enqueue_style( 'owlcarousel', get_template_directory_uri() . '/libs/owlcarousel/owl.carousel.min.css' );
     wp_enqueue_style( 'fontawesome', '//use.fontawesome.com/releases/v5.10.2/css/all.css' );
-    //wp_enqueue_style( 'fonts', '//fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700&display=swap' );
     wp_enqueue_script( 'fancybox', get_template_directory_uri() . '/libs/fancybox/jquery.fancybox.min.js', array( 'jquery' ) );
     wp_enqueue_script( 'owlcarousel', get_template_directory_uri() . '/libs/owlcarousel/owl.carousel.min.js', array( 'jquery' ) );
-    wp_enqueue_script( 'yandex_map', '//api-maps.yandex.ru/2.1/?apikey=<2044817c-a630-48b1-acf8-5e08fd4884d3>&lang=ru_RU',  array( 'jquery' ) );
     wp_enqueue_script( 'main', get_template_directory_uri() . '/js/common.js', array( 'jquery' ) );
 }
 
@@ -189,4 +187,10 @@ function cf7_select() {
     return '<div class="form_select">
                 <select name="model" class="wpcf7-form-control wpcf7-select" aria-invalid="false">' . $options . '</select>
             </div>';
+}
+add_action( 'wp_enqueue_scripts', 'custom_clean_head' );//перемещаем скрипты и стили  в подвал
+function custom_clean_head() {
+    remove_action('wp_head', 'wp_print_scripts');
+    remove_action('wp_head', 'wp_print_head_scripts', 9);
+    remove_action('wp_head', 'wp_enqueue_scripts', 1);
 }

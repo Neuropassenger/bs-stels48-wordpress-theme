@@ -6,6 +6,7 @@ jQuery(document).ready(function( $ ) {
         loop: true,
         nav: true,
         autoplay: true,
+        autoHeight: true,
         startPosition: 3,
         lazyLoad: true,
         autoplayHoverPause: true,
@@ -112,6 +113,23 @@ jQuery(document).ready(function( $ ) {
         return solidStars + regularStars;
     });
 
+//загрузка карты после достижения секции 'О велосипедах'
+    let isMapInitialized = false;
+    let aboutBikesTop = $("#aboutbikes").offset().top;
+
+    $(window).scroll(function() {
+        if ($(this).scrollTop() > aboutBikesTop && !isMapInitialized) {
+            isMapInitialized = true;
+            loadMap();
+        }
+    });
+
+    function loadMap() {
+        $.getScript('//api-maps.yandex.ru/2.1/?apikey=<2044817c-a630-48b1-acf8-5e08fd4884d3>&lang=ru_RU', function () {
+            ymaps.ready(setMyMap)
+        });
+    }
+
     function setFormAndOwl() {
         let model;
         if (($(this).get(0).tagName) == 'BUTTON' ) {
@@ -165,29 +183,25 @@ jQuery(document).ready(function( $ ) {
         $('main').css('display', 'block');
     }
 
+    function setMyMap() {
+        var myMap = new ymaps.Map("map", {
+                center: [52.621670, 38.504245],
+                zoom: 15,
+                controls: []
+            }, {
+                searchControlProvider: 'yandex#search'
+            }),
 
+            myPlacemark = new ymaps.Placemark(myMap.getCenter(), {
+                iconCaption: 'Наш магазин',
+                hintContent: 'STELS48 - это качественные велосипеды<br>по самым низким ценам в СНГ',
+                balloonContent: 'Россия, Липецкая обл.,<br>г. Елец, ул. Пушкина, д. 144'
+            }, {
+                preset: 'islands#icon',
+                iconColor: '#97D700'
+            });
+
+        myMap.geoObjects
+            .add(myPlacemark)
+    };
 });
-
-ymaps.ready(init);
-
-function init() {  
-    var myMap = new ymaps.Map("map", {
-        center: [52.621670, 38.504245],
-        zoom: 15,
-        controls: []
-    }, {
-        searchControlProvider: 'yandex#search'
-    }),
-    
-    myPlacemark = new ymaps.Placemark(myMap.getCenter(), {
-        iconCaption: 'Наш магазин',
-        hintContent: 'STELS48 - это качественные велосипеды<br>по самым низким ценам в СНГ',
-        balloonContent: 'Россия, Липецкая обл.,<br>г. Елец, ул. Пушкина, д. 144'
-    }, {
-        preset: 'islands#icon',
-        iconColor: '#97D700'
-    });
-
-    myMap.geoObjects
-        .add(myPlacemark)
-};
